@@ -1,5 +1,5 @@
 import express from "express";
-import { createOne, getAll } from "./controller.mjs";
+import { createOne, deleteOne, getAll, update } from "./controller.mjs";
 
 const router = express.Router();
 // router.get("/:commentId", getAll);
@@ -8,3 +8,5 @@ const router = express.Router();
 export const commentRouter = router;
 export const commentGetRouter = getAll;
 export const commentCreateRouter = createOne;
+export const commentUpdateRouter = update;
+export const commentDeleteRouter = deleteOne;

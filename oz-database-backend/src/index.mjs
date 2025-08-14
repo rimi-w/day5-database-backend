@@ -8,7 +8,9 @@ import { postRouter } from "./feature/post/router.mjs";
 import { likeRouter } from "./feature/like/router.mjs";
 import {
   commentCreateRouter,
+  commentDeleteRouter,
   commentGetRouter,
+  commentUpdateRouter,
 } from "./feature/comment/router.mjs";
 
 // .env 파일 불러오기
@@ -40,6 +42,8 @@ app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms")
 );
 
+app.delete("/film/post/:postId/comment/:commentId", commentDeleteRouter);
+app.patch("/film/post/:postId/comment/:commentId", commentUpdateRouter);
 app.get("/film/post/:postId/comment", commentGetRouter);
 app.post("/film/post/:postId/comment", commentCreateRouter);
 app.use("/film/post/like", likeRouter);
